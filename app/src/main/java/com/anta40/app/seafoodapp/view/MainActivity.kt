@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.anta40.app.seafoodapp.adapter.FoodAdapter
 import com.anta40.app.seafoodapp.databinding.ActivityMainBinding
 import com.anta40.app.seafoodapp.model.Meal
 import com.anta40.app.seafoodapp.util.FoodClickListener
@@ -33,7 +35,10 @@ class MainActivity : AppCompatActivity(), FoodClickListener {
                 Toast.makeText(applicationContext, "Data kosong", Toast.LENGTH_SHORT).show()
             }
             else  {
-
+                val food_adapter = FoodAdapter(applicationContext, it.meals, this)
+                recyclerview_food_list.layoutManager = LinearLayoutManager(applicationContext,
+                    LinearLayoutManager.VERTICAL, false)
+                recyclerview_food_list.adapter = food_adapter
             }
         }
     }

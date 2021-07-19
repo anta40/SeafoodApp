@@ -8,10 +8,10 @@ object MainActivityRepository {
 
     fun getSeafoodListApiCall(): Call<MealList> {
 
-        val call = ApiClient.apiInterface.getSeafoodList("Seafood")
+        val call = ApiClient.apiInterface.getFoodList("Seafood")
 
         return call
-    }
+   }
 
 
 }
